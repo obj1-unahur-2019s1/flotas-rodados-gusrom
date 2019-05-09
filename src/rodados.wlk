@@ -9,7 +9,7 @@ class Corsa {
 
 class Kwid{
 	const property color="Azul"
-	var tieneTanque=true
+	var property tieneTanque=true
 	method capacidad(){
 		if(tieneTanque){return 3}
 		else{return 4}
@@ -46,11 +46,18 @@ object interiorComodo{
 }
 object motorPulenta{
 		method peso(){return 800}
-		method velocidadMaxima(){return 1300}
+		method velocidadMaxima(){return 130}
 }
 object motorBataton{
 		method peso(){return 500}
 		method velocidadMaxima(){return 80}
+}
+
+class AutoEspecial{
+	var property capacidad
+	var property velocidadMaxima
+	var property color
+	var property peso
 }
 		
 	
