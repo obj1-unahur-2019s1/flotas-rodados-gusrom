@@ -1,41 +1,15 @@
 import rodados.*
 import dependencia.*
-test "testDependencia" {
+describe "Flota de rodados"{
+var cachito=new Corsa(color="Rojo")
+test "testDependenciaDeportes" {
 
-	var deporte=new Dependencia()
-	var cultura=new Dependencia()
-	deporte.empleados(45)
-	cultura.empleados(31)
-	var cachito=new Corsa(color="Rojo")
-	var corverde=new Corsa(color="Verde")
-	var corazul=new Corsa(color="Azul")
-	var kwid1=new Kwid()
-	var autazo=new AutoEspecial(color="Beige")
-	var kwid2=new Kwid()
-	var kwid3=new Kwid()
-	kwid3.tieneTanque(false)
-	cachito.color("Rojo")
-	corverde.color("Verde")
-	corazul.color("Azul")
-	autazo.color("Beige")
-	autazo.peso(1200)
-	autazo.velocidadMaxima(160)
-	autazo.capacidad(8)
-	traffic.motor(motorBataton)
-	traffic.interior(interiorPopular)
-	
-
+	var deporte=new Dependencia(empleados=45)
 	deporte.agregarAFlota(cachito)
-	deporte.agregarAFlota(corverde)
-	deporte.agregarAFlota(corazul)
-	deporte.agregarAFlota(autazo)
-	deporte.agregarAFlota(kwid1)
-	
-	cultura.agregarAFlota(cachito)
-	cultura.agregarAFlota(kwid1)
-	cultura.agregarAFlota(kwid2)
-	cultura.agregarAFlota(kwid3)
-	cultura.agregarAFlota(traffic)
+	deporte.agregarAFlota(new Corsa(color="Verde"))
+	deporte.agregarAFlota(new Corsa(color="Azul"))
+	deporte.agregarAFlota(new AutoEspecial(capacidad=8,peso=1200,velocidadMaxima=160,color="Beige"))
+	deporte.agregarAFlota(new Kwid(tieneTanque=false))
 	
 	assert.equals(6450,deporte.pesoTotalFlota())
 	assert.equals(true,deporte.estaBienEquipada())
@@ -43,6 +17,29 @@ test "testDependencia" {
 	assert.equals("Beige",deporte.colorDelRodadoMasRapido())
 	assert.equals(true,deporte.esGrande())
 	assert.equals(22,deporte.capacidadFaltante())
+	}
+	
+test "testDependenciaCultura"{
+
+var cultura=new Dependencia(empleados=31)
+	
+	
+	var kwid1=new Kwid()
+	var kwid2=new Kwid()
+	var kwid3=new Kwid()
+
+
+	traffic.motor(motorBataton)
+	traffic.interior(interiorPopular)
+
+	
+	cultura.agregarAFlota(cachito)
+	cultura.agregarAFlota(kwid1)
+	cultura.agregarAFlota(kwid2)
+	cultura.agregarAFlota(kwid3)
+	cultura.agregarAFlota(traffic)
+	
+
 	
 	assert.equals(10700,cultura.pesoTotalFlota())
 	assert.equals(false,cultura.estaBienEquipada())
@@ -51,7 +48,5 @@ test "testDependencia" {
 	assert.equals(false,cultura.esGrande())
 	assert.equals(5,cultura.capacidadFaltante())
 	
-	
-	
-
+}
 }

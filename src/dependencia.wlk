@@ -1,6 +1,7 @@
 import rodados.*
 class Dependencia  {
 	var flota=[]
+	var pedidos=[]
 	var property empleados=10
 	method agregarAFlota(rodado){flota.add(rodado)}
 	method quitarDeFlota(rodado){flota.remove(rodado)}
@@ -10,6 +11,10 @@ class Dependencia  {
 	method colorDelRodadoMasRapido(){return flota.max{rodado=>rodado.velocidadMaxima()}.color()}
 	method capacidadFaltante(){return empleados- flota.sum({rodado=>rodado.capacidad()})}
 	method esGrande(){return empleados>=40 && flota.size()>=5}
+	
+	method agregarAPedidos(pedido){pedidos.add(pedido)}
+	method quitarDePedidos(pedido){pedidos.remove(pedido)}
+	method totalPasajeros(){pedidos.sum{pedido=>pedido.capacidad()}}
 
 
 

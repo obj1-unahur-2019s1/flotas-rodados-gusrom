@@ -1,0 +1,12 @@
+import rodados.*
+import dependencia.*
+test "viaje" {
+	var cachito=new Corsa(color="Rojo")
+	var mardelplata=new Pedidos(distancia=960,tiempoMaximo=8,pasajeros=4,coloresIncompatibles=#{"Azul","Negro"})
+	assert.equals(true,mardelplata.satisfacePedido(cachito))
+	
+	mardelplata.coloresIncompatibles().add("Rojo")
+	assert.equals(false,mardelplata.satisfacePedido(cachito))
+	
+
+}
