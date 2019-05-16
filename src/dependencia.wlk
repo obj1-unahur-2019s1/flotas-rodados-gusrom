@@ -15,6 +15,10 @@ class Dependencia  {
 	method agregarAPedidos(pedido){pedidos.add(pedido)}
 	method quitarDePedidos(pedido){pedidos.remove(pedido)}
 	method totalPasajeros(){pedidos.sum{pedido=>pedido.capacidad()}}
+	method pedidosInaceptables(){return pedidos.filter{pedido=>not self.puedeSatisfacerPedido(pedido)}}
+	method puedeSatisfacerPedido(pedido){return flota.any{veh=>pedido.satisfacePedido(veh)}}
+	method esColorRechazado(color){return pedidos.all{pedidos.coloresIncompatibles().contains(color)}}
+	method relajarTodosLosPedidos(){pedidos.forEach{pedidos.relajar()}}
 
 
 

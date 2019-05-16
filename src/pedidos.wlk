@@ -16,6 +16,8 @@ class  Pedidos {
 		coloresIncompatibles.all{color=>color!=auto.color()}
 		//not coloresIncompatibles.contains(auto.color())
 	}
+	
+	
 	method acelerar(){tiempoMaximo-=1}
 	method relajar(){tiempoMaximo+=1}
 	
